@@ -1,16 +1,31 @@
-node{
-    stage('Build'){
-        echo "Build task has been performed"
+pipeline{
+    agent{
+        label "node"
     }
-    stage('Test'){
-        echo "Test task has been performed"
-    }
+    stages{
+        stage("Build"){
+            steps{
+                echo "========executing A========"
+            }
+        }
 
-    stage('Deploy'){
-        echo "Deployment has been performed"
-    }
+        stage("Test"){
+            steps{
+                echo "========executing Test========"
+            }
+        }
 
-    stage('Release'){
-        echo "The Release build has been created."
+        stage("Deploy"){
+            steps{
+                echo "========Deployment========"
+            }
+        }
+
+        stage("Release"){
+            steps{
+                echo "========Release in progress========"
+            }
+        }
     }
+    
 }
